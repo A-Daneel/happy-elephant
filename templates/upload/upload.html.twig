@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% set page_title = 'Upload image' %}
+
+{% block body %}
+	<div class="container row">
+		<form method='post' action='' enctype='multipart/form-data'>
+			<input type='file' name='imagefile'>
+			<input type='submit' value='Upload' name='upload'>
+		</form>
+	</div>
+{% endblock %}
