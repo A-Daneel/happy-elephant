@@ -1,0 +1,29 @@
+{% if activeSection is not defined %}
+    {% set activeSection = app.request.get('_route') %}
+{% endif %}
+{% for item in menu.getItems()|merge(menu.getItems('profile')) %}
+    {% if (item.role is defined and is_granted(item.role)) or item.role is not defined %}
+        {% set item_type = (item.path is defined) ? "a"                          : "span" %}
+        {% set item_path = (item.path is defined) ? "href="~(item.path is iterable ? path(item.path[0], item.path[1]) : path(item.path)) : "" %}
+        {% set item_active = (item.activeCriteria ?? item.path ?? null in activeSection) ? "active " : "" %}
+        {% if item.path is defined %}
+        <div class="{{ (item_active ~ " " ~ item.class ?? "")|trim }}">
+        {% endif %}
+            <{{ item_type }} class="{{ item_active }}" {{ item_path }}>{{ item.title }}</{{ item_type }}>
+            {% if item.sub is defined %}
+                <div class="sub">
+                {% for sub in item.sub %}
+                    <a href="{{ path(sub.path) }}">{{ sub.title }}</a>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% if item.path is defined %}
+        </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+{% if app.user %}
+    <div>
+        <a class="mobile" href="{{ path('app_logout') }}">Uitloggen</a>
+    </div>
+{% endif %}

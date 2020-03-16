@@ -1,0 +1,100 @@
+@function create-gradient($color) {  
+    @return linear-gradient(to bottom right, $color, scale-color(adjust-hue($color, -20deg), 50%));
+}
+
+.category {
+    color          : black;
+    padding        : $padding - .5rem;
+    position: relative;
+    border-left : gray solid .5rem;
+    margin: 0;
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    &.remove {
+        background: create-gradient(#ff2800);
+        color: white;
+        &:before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border-left: .125rem solid white;
+        }
+    }
+    
+    &.edit {
+        background: create-gradient(#FF8300);
+        color: white;
+        &:before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border-left: .125rem solid white;
+        }
+    }
+    
+    &.new {
+        background: create-gradient(#00BF41);
+        color: white;
+        &:before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border-left: .125rem solid white;
+        }
+    }
+
+    &.red {
+        border-left : #ff2800 solid .5rem;
+
+        &.block {
+            background : create-gradient(#ff2800);
+        }
+    }
+    
+    &.orange {
+        border-left : #FF8300 solid .5rem;
+        
+        &.block {
+            background : create-gradient(#FF8300);
+        }
+    }
+
+    &.green {
+        border-left : #00BF41 solid .5rem;
+        
+        &.block {
+            background : create-gradient(#00BF41);
+        }
+    }
+
+    &.teal {
+        border-left : #017DA6 solid .5rem;;
+    }
+
+    &.blue {
+        border-left : #0420B4 solid .5rem;;
+    }
+
+    &.purple {
+        border-left : #3F03B4 solid .5rem;;
+    }
+
+    &.pink {
+        border-left : #D60069 solid .5rem;
+    }
+
+    &.block {
+        border-left : none;
+        color: white;
+        padding-left: $padding;
+    }
+}

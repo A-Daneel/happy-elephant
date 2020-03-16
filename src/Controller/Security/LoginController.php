@@ -37,7 +37,6 @@ class LoginController extends AbstractController
     }
 
     /**
-     * @MenuItem(title="Uitloggen", menu="admin-profile", class="mobile")
      * @Route("/logout", name="app_logout", methods={"GET"})
      */
     public function logout()

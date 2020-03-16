@@ -8,17 +8,19 @@
 @include foundation-global-styles;
 @include foundation-typography;
 @include foundation-xy-grid-classes;
+@include foundation-flex-classes;
 
 /*  Helpless Kiwi */
 @import "components/base";
 @import "components/content";
-@import "components/admin/form";
-@import "components/main/nav";
-@import "components/main/activity";
 @import "components/message";
+@import "components/nav";
+@import "components/form";
+@import "components/tabs";
 @import "components/card";
 @import "components/table";
 @import "components/button";
-@import "components/main/feedback";
-@import "components/main/profile";
-@import "components/main/login";
+@import "components/feedback";
+@import "components/profile";
+@import "components/login";
+@import "components/category";

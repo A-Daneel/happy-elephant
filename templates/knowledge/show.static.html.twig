@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% if page_title is not defined %}
+    {% set page_title = 'Reglementen' %}
+{% endif %}
+
+
+{% block body_root %}
+    <div class="container row">
+    <div class="card">
+        <h1 class="category orange block">Reglementen</h1>
+    </div>
+    </div>
+
+    <div class="container row">
+    <div class="card table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Pagina</th>
+                    <th>Laatst bewerkt</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for page in ['Statuten', 'Huishoudelijk Reglement'] %}
+                <tr>
+                    <td><a href="{{ path("knowledge_index") }}">{{ page }}</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>Geen pagina's.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %}

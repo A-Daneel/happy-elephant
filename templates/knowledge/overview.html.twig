@@ -1,0 +1,90 @@
+{% extends 'layout.html.twig' %}
+
+{% if page_title is not defined %}
+    {% set page_title = 'Kennisbank' %}
+{% endif %}
+
+{% block body %}
+    <div class="cardholder">
+        <div class="grid-x large-up-2">
+            <div class="cell large-order-1">
+                <h2>Wijzigingen</h2>
+                <div class="card category proposal new purple">
+                    <h1>Nieuwe pagina: Conscribo</h1>
+                    <span>15 stemmen</span>
+                </div>
+                <div class="card category proposal edit orange">
+                    <h1>Aanpassing pagina: Huishoudelijk Reglement</h1>
+                    <span>15 stemmen</span>
+                </div>
+                <div class="card category proposal remove purple">
+                    <h1>Verwijdering pagina: GnuCash</h1>
+                    <span>15 stemmen, 9 reacties</span>
+                </div>
+            </div>
+            <div class="cell">
+                <h2>Informatie</h2>
+                <div class="card category orange">
+                    <span>Reglementen</span>
+                </div>
+                <div class="card category teal">
+                    <span>Organisatie</span>
+                </div>
+                <div class="card category red">
+                    <span>Activiteiten</span>
+                </div>
+                <div class="card category purple">
+                    <span>Financien</span>
+                </div>
+                <div class="card category pink">
+                    <span>Promotie</span>
+                </div>
+                <div class="card category green">
+                    <span>Bestuur &amp; beleid</span>
+                </div>
+                <div class="card category">
+                    <span>Organisatie</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# <h2>Categorieen</h2> #}
+    {# <div class="cardholder">
+        <div class="grid-x large-up-2">
+            <div class="cell">
+                <div class="card category orange">
+                    <span>Reglementen</span>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card category teal">
+                    <span>Organisatie</span>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card category red">
+                    <span>Activiteiten</span>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card category purple">
+                    <span>Financien</span>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card category pink">
+                    <span>Promotie</span>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card category green">
+                    <span>Bestuur &amp; beleid</span>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card category blue">
+                    <span>Organisatie</span>
+                </div>
+            </div>
+        </div> #}
+{% endblock %}

@@ -7,22 +7,22 @@ fi
 
 # Delete leftover files
 echo Removing files from earlier runs, please wait...
-rm -rf kiwi
+rm -rf elephant
 rm -rf public_html
 
 # Download the contents of the current git repo, and delete git files
-git clone --depth=1 https://github.com/jasperweyne/helpless-kiwi kiwi
-rm -rf kiwi/.git
+git clone --depth=1 https://github.com/A-Daneel/happy-elephant elephant
+rm -rf elephant/.git
 
-# Move kiwi/public to public_html/kiwi
-egrep -lRZ 'public/' kiwi | xargs -0 -l sed -i -e 's/public\//..\/public_html\/kiwi\//g'
-sed -i -e 's/\/config\/bootstrap.php/\/..\/kiwi\/config\/bootstrap.php/g' kiwi/public/index.php
-sed -i -e 's/\"extra\": {/\"extra\": {\n        \"public-dir\": \"..\/public_html\/kiwi\",/g' kiwi/composer.json
+# Move elephant/public to public_html/elephant
+egrep -lRZ 'public/' elephant | xargs -0 -l sed -i -e 's/public\//..\/public_html\/elephant\//g'
+sed -i -e 's/\/config\/bootstrap.php/\/..\/elephant\/config\/bootstrap.php/g' elephant/public/index.php
+sed -i -e 's/\"extra\": {/\"extra\": {\n        \"public-dir\": \"..\/public_html\/elephant\",/g' elephant/composer.json
 mkdir public_html
-mv kiwi/public public_html/kiwi
+mv elephant/public public_html/elephant
 
 # Download/build dependencies
-cd kiwi
+cd elephant
 export APP_DEBUG=0 APP_ENV=prod
 composer install --no-dev --optimize-autoloader
 yarn install
@@ -31,16 +31,16 @@ cd ../
 
 # Remove files redundant for operation 
 echo Removing files redundant for operation, please wait...
-rm kiwi/* 2> /dev/null
-rm -rf kiwi/.github
-rm -rf kiwi/.hooks
-rm -rf kiwi/assets
-rm -rf kiwi/bin
-rm -rf kiwi/node_modules
-rm -rf kiwi/var
+rm elephant/* 2> /dev/null
+rm -rf elephant/.github
+rm -rf elephant/.hooks
+rm -rf elephant/assets
+rm -rf elephant/bin
+rm -rf elephant/node_modules
+rm -rf elephant/var
 
 # Create environment variable file
-cat > kiwi/.env.local.php << EOL
+cat > elephant/.env.local.php << EOL
 <?php
 
 return array (

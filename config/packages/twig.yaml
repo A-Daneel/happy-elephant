@@ -1,6 +1,6 @@
 #Editted
 parameters:
-    env(ORG_NAME): 'Kiwi'
+    env(ORG_NAME): 'Happy Elephant'
 
 twig:
     default_path: '%kernel.project_dir%/templates'

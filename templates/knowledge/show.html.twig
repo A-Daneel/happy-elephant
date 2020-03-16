@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% if page_title is not defined %}
+    {% set page_title = 'Kennisbank' %}
+{% endif %}
+
+
+{% block body %}
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Naam</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for page in pages ?? [] %}
+                <tr>
+                    <td><a href="{{ path("knowledge_index") }}"></a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>Geen pagina's.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
