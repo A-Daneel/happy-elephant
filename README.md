@@ -6,9 +6,8 @@
 |-------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | CI Status | ![CI](https://github.com/A-Daneel/happy-elephant/workflows/CI/badge.svg?branch=master) | ![CI](https://github.com/A-Daneel/happy-elephant/workflows/CI/badge.svg?branch=develop) |
 
-# Helpless Kiwi
-Helpless Kiwi is a project to manage members, create and manage activities, keep
-track of inventory and more. It has been written using the Symfony/Doctrine framework.
+# Happy Elephant
+Happy Elephant is a project to upload picture, run data analysis and serve as a general knowladge base. It has been written using the Symfony/Doctrine framework.
 
 ## Built on...
  - Symfony
