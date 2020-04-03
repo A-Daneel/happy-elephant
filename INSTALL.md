@@ -8,7 +8,7 @@ MySQL is supported primairily. When developing, it is recommended to download
 both PHP and MySQL as part of a stack, such as WAMP, XAMPP or LAMP for Windows,
 Mac and Linux respectively.
 
-For dependencies, Kiwi uses two package managers, [composer](https://getcomposer.org/)
+For dependencies, Happy Elephant uses two package managers, [composer](https://getcomposer.org/)
 and [yarn](https://yarnpkg.com/). Composer is dependent on php, which you've
 already installed, and yarn is dependent on [node.js](https://nodejs.org/). All
 these tools need to be installed. For installing these tools, it is recommended
@@ -16,7 +16,7 @@ to use a package manager, such as [Chocolatey](https://chocolatey.org/) when
 using Windows, [Homebrew](https://brew.sh/) when using Mac or the package
 manager with your distro when using Linux. 
 
-Throughout Kiwi, it is assumed that these tools are installed globally and are
+Throughout Happy Elephant, it is assumed that these tools are installed globally and are
 accesible from your PATH variable. Please make sure of this by running in your
 command line interface:
 
@@ -38,8 +38,8 @@ check the documentation for your program. When using the git in the command line
 simply clone the develop branch:
 
 ```bash
-git clone https://github.com/jasperweyne/helpless-kiwi.git -b develop
-cd helpless-kiwi
+git clone https://github.com/A-Daneel/happy-elephant.git -b develop
+cd happy-elephant
 ```
 
 Now, create a ```.env.local``` file in the root folder. Here, disable HTTPS, and
@@ -92,9 +92,17 @@ php bin/console server:run
 ```
 
 ### Production
-To ease the building process, you can download, modify and run the build_prod.sh
-script from this repository to generate a production environment. If this
-doesn't work properly for you can deploy manually using these instructions.
+To ease the building process, you can download the latest release from the
+[releases page](https://github.com/A-Daneel/happy-elephant/releases), and
+upload the folders directly to your server. Here, it is assumed your server's
+root directory is 'public_html' and Happy Elephant is served from a subdirectory within,
+called 'elephant', usually representing a subdomain.
+
+If these conditions don't apply to you, you can instead download, modify and run
+the build_prod.sh script from this repository to generate a production
+environment. This script is intended to produce the same results as a release.
+If this doesn't work properly for you can deploy manually using these
+instructions.
 
 For clarity purposes, we're assuming you're deploying to another location, for
 example by moving the files over FTP. Locally or through SSH should work fine

@@ -4,4 +4,9 @@ require('../style/main.scss');
 // Dependencies
 const $ = require('jquery');
 
-//require('./css-backdrop-filter-polyfill.js');
+require('select2');
+require('select2/dist/css/select2.css');
+
+$(document).ready(function() {
+    $('select[data-select="true"]').select2();
+});

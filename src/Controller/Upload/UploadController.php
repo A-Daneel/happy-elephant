@@ -9,10 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UploadController extends AbstractController
 {
-
-
   /**
-   * @Route("/upload", name="app_upload", method={"get"})
+   * @Route("/upload", name="app_upload", methods={"GET"})
    */
   public function upload()
   {
@@ -20,7 +18,7 @@ class UploadController extends AbstractController
   }
 
   /**
-   * @Route("/upload/view)
+   * @Route("/upload/view")
    */
   public function indexAction()
   {
@@ -28,7 +26,7 @@ class UploadController extends AbstractController
   }
 
   /**
-   * @Route("/upload/test, name="app_upload_test")
+   * @Route("/upload/test", name="app_upload_test")
    */
   public function formDisplay()
   {

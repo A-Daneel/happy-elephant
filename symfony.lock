@@ -1,7 +1,4 @@
 {
-    "behat/transliterator": {
-        "version": "v1.2.0"
-    },
     "composer/semver": {
         "version": "1.5.0"
     },
@@ -127,10 +124,13 @@
             "branch": "master",
             "version": "2.0",
             "ref": "49c5d7a66d863d28513979bf0666dc77599100c0"
-        }
+        },
+        "files": [
+            "./config/packages/google_apiclient.yaml"
+        ]
     },
     "google/apiclient-services": {
-        "version": "v0.125"
+        "version": "v0.127"
     },
     "google/auth": {
         "version": "v0.8"
@@ -147,9 +147,6 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
-    "jms/metadata": {
-        "version": "2.0.0"
-    },
     "monolog/monolog": {
         "version": "1.24.0"
     },
@@ -158,6 +155,9 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
+    },
+    "php": {
+        "version": "7.2"
     },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
@@ -172,7 +172,7 @@
         "version": "0.4.0"
     },
     "phpseclib/phpseclib": {
-        "version": "2.0.23"
+        "version": "2.0.25"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -481,9 +481,6 @@
             "./config/packages/test/swiftmailer.yaml"
         ]
     },
-    "symfony/templating": {
-        "version": "v4.2.10"
-    },
     "symfony/test-pack": {
         "version": "v1.0.5"
     },
@@ -587,18 +584,6 @@
     },
     "twig/twig": {
         "version": "v2.7.2"
-    },
-    "vich/uploader-bundle": {
-        "version": "1.5",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.5",
-            "ref": "c4f5755b37fb65b9c6a3cbdae91205c15a137ed4"
-        },
-        "files": [
-            "./config/packages/vich_uploader.yaml"
-        ]
     },
     "webmozart/assert": {
         "version": "1.4.0"

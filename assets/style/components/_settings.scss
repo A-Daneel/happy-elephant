@@ -8,8 +8,8 @@
 
 // Colors
 $body-background : #f2f2f2;
-$nav-main        : #222533;
-$nav-color       : scale-color($nav-main, $lightness:  50%);
+$nav-main        : #fff;
+$nav-color       : #000; //scale-color($nav-main, $lightness:  50%);
 $nav-active      : scale-color($nav-main, $lightness: -33%);
 
 // Typography

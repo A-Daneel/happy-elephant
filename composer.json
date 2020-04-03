@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "google/apiclient": "2.0",
+        "doctrine/doctrine-cache-bundle": "^1.4",
         "sensio/framework-extra-bundle": "^5.3",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "^4.0",
@@ -27,8 +28,7 @@
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-bundle": "^1.5",
         "symfony/yaml": "^4.0",
-        "twig/twig": "^2.11",
-        "vich/uploader-bundle": "^1.10"
+        "twig/twig": "^2.11"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.14",

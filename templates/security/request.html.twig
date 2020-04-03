@@ -4,6 +4,7 @@
 
 {% block body %}
 <div class="container row">
+    <div class="login">
     <p>Ben je je wachtwoord vergeten? Vul hier je e-mailadres in waarmee je {{ org }} account is ingeschreven, dan sturen we je een herstelmail.</p>
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -12,5 +13,6 @@
             <a href="{{ path('app_login') }}">Terug naar login</a>
         </div>
     {{ form_end(form) }}
+    </div>
 </div>
 {% endblock body %}
