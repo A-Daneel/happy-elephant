@@ -19,7 +19,7 @@ class KnowledgeController extends AbstractController
     {
         return $this->render('knowledge/overview.html.twig');
     }
-    
+
     /**
      * @Route("/show", name="show", methods={"GET"})
      */
@@ -27,7 +27,7 @@ class KnowledgeController extends AbstractController
     {
         return $this->render('knowledge/show.static.html.twig');
     }
-    
+
     /**
      * @Route("/proposal", name="proposal", methods={"GET"})
      */

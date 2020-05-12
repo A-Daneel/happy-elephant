@@ -47,6 +47,6 @@ class GenerateAuthIdCommand extends Command
             $key = $input->getArgument('key');
         }
 
-        $output->writeln('ID: ' . $this->userProvider->usernameHash($email, $key));
+        $output->writeln('ID: '.$this->userProvider->usernameHash($email, $key));
     }
 }

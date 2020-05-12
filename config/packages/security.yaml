@@ -1,50 +1,48 @@
 # Editted
 parameters:
-    # Adds a fallback DATABASE_URL if the env var is not set.
-    # This allows you to run cache:warmup even if your
-    # environment variables are not available yet.
-    # You should not need to change this value.
-    env(SECURE_SCHEME): 'https'
+  # Adds a fallback DATABASE_URL if the env var is not set.
+  # This allows you to run cache:warmup even if your
+  # environment variables are not available yet.
+  # You should not need to change this value.
+  env(SECURE_SCHEME): "https"
 
 security:
-    encoders:
-        App\Entity\Security\Auth:
-            algorithm: auto
+  encoders:
+    App\Entity\Security\Auth:
+      algorithm: auto
 
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-    providers:
-        # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
-            id: App\Security\AuthUserProvider
-            
-    firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
-            anonymous: true
-            guard:
-                authenticators:
-                    - App\Security\LoginAuthenticator
-            logout:
-                path:   app_logout
-                # where to redirect after logout
-                # target: app_any_route
-            remember_me:
-                secret: '%kernel.secret%'
-                always_remember_me: true
+  # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+  providers:
+    # used to reload user from session & other features (e.g. switch_user)
+    app_user_provider:
+      id: App\Security\AuthUserProvider
 
-            # activate different ways to authenticate
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+    main:
+      anonymous: true
+      guard:
+        authenticators:
+          - App\Security\LoginAuthenticator
+      logout:
+        path: app_logout
+        # where to redirect after logout
+        # target: app_any_route
+      remember_me:
+        secret: "%kernel.secret%"
+        always_remember_me: true
 
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+      # activate different ways to authenticate
+      # http_basic: true
+      # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+      # form_login: true
+      # https://symfony.com/doc/current/security/form_login_setup.html
 
-            # form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
-    access_control:
-        - { path: ^/password, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: '%env(SECURE_SCHEME)%' }
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: '%env(SECURE_SCHEME)%' }
-        - { path: ^/, allow_if: "has_role('ROLE_ADMIN') and is_fully_authenticated()", requires_channel: '%env(SECURE_SCHEME)%' }
+  # Easy way to control access for large sections of your site
+  # Note: Only the *first* access control that matches will be used
+  access_control:
+    #- { path: ^/password, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: '%env(SECURE_SCHEME)%' }
+    #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: '%env(SECURE_SCHEME)%' }
+    #- { path: ^/, allow_if: "has_role('ROLE_ADMIN') and is_fully_authenticated()", requires_channel: '%env(SECURE_SCHEME)%' }

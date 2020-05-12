@@ -3,8 +3,8 @@
 namespace App\Entity\Mail;
 
 use App\Entity\Security\Auth;
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity

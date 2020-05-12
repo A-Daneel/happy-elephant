@@ -6,8 +6,8 @@ use App\Entity\Mail\Mail;
 use App\Entity\Mail\Recipient;
 use App\Entity\Security\Auth;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class MailService
 {

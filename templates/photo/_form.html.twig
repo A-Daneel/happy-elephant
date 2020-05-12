@@ -1,0 +1,22 @@
+{{ form_start(photoForm) }}
+
+
+<div class="row">
+	<div class="col-sm-9">
+		{{ form_row(photoForm.imageFile) }}
+	</div>
+	<div class="col-sm-9">
+		{% if photoForm.vars.data.filename %}
+			<img src="{{ photoForm.imagePath | imagine_filter('thumbnail_small') }}">
+		{% endif %}
+	</div>
+</div>
+{{ form_row(photoForm.directory, {
+    label: 'Prefered subdirectory'
+}) }}
+{{ form_row(photoForm.uploader, {
+    label: 'Your name'
+}) }}
+
+<button type="submit" class="btn btn-primary">{{ button_text}}</button>
+{{ form_end(photoForm) }}

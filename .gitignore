@@ -33,3 +33,6 @@ yarn-error.log
 /public/uploads/
 Thumbs.db
 ###< custom ###
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

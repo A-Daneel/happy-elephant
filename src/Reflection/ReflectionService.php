@@ -2,8 +2,8 @@
 
 namespace App\Reflection;
 
-use Doctrine\Instantiator\Instantiator;
 use Doctrine\Common\Persistence\Mapping\RuntimeReflectionService;
+use Doctrine\Instantiator\Instantiator;
 
 class ReflectionService extends RuntimeReflectionService
 {

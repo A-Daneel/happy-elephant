@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% set page_title = 'View all' %}
+
+{% block body %}
+	<a href="{{ path('photo_new') }}">Upload new image.</a>
+	{% for image in images %}
+		<div class="article-container my-1">
+			<a href="{{ uploaded_asset(image.imagePath) }}" target="_blank">
+				<img class="article-img" width="42" src="{{ image.imagePath | imagine_filter('thumbnail_small') }}">
+			</a>
+		</div>
+	{% endfor %}
+</div>{% endblock %}

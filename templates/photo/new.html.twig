@@ -1,0 +1,8 @@
+{% extends "layout.html.twig" %}
+{% set page_title = 'Upload' %}
+
+{% block body %}
+	{{ include('photo/_form.html.twig', {
+    button_text: 'Upload!' 
+  }) }}
+{% endblock %}

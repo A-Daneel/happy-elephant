@@ -67,8 +67,6 @@ class Person
 
     /**
      * Set id.
-     *
-     * @param string $id
      */
     public function setId(string $id): self
     {
@@ -111,8 +109,6 @@ class Person
 
     /**
      * Set email address.
-     *
-     * @param string $email
      */
     public function setEmail(string $email): self
     {

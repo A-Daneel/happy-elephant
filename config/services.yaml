@@ -4,53 +4,72 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
-    # Adds a fallback USERPROVIDER_KEY if the env var is not set.
-    # This allows you to run cache:warmup even if your
-    # environment variables are not available yet.
-    # You should not need to change this value.
-    env(USERPROVIDER_KEY): ''
+  locale: "en"
+  # Adds a fallback USERPROVIDER_KEY if the env var is not set.
+  # This allows you to run cache:warmup even if your
+  # environment variables are not available yet.
+  # You should not need to change this value.
+  env(USERPROVIDER_KEY): ""
+  uploads_dir_name: "uploads"
+  uploads_base_url: "%env(SITE_BASE_URL)%/%uploads_dir_name%"
 
 services:
-    # default configuration for services in *this* file
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+    bind:
+      $publicUploadFilesystem: "@oneup_flysystem.public_uploads_filesystem_filesystem"
+      $uploadedAssetsBaseUrl: "%uploads_base_url%"
 
-    # controllers are imported separately to make sure services can be injected
-    # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller'
-        tags: ['controller.service_arguments']
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  App\:
+    resource: "../src/*"
+    exclude: "../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}"
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-    #Editted
-    App\Security\AuthUserProvider:
-        class: App\Security\AuthUserProvider
-        arguments: ['@doctrine', '%env(USERPROVIDER_KEY)%', '%doctrine.default_entity_manager%']
+  # controllers are imported separately to make sure services can be injected
+  # as action arguments even if you don't extend any base controller class
+  App\Controller\:
+    resource: "../src/Controller"
+    tags: ["controller.service_arguments"]
 
-    App\Template\AnnotationMenuExtension:
-        class: App\Template\AnnotationMenuExtension
-        arguments: ["App\\Controller", "../src/Controller", "%kernel.root_dir%", "@annotation_reader"]
+  # add more service definitions when explicit configuration is needed
+  # please note that last definitions always *replace* previous ones
+  #Editted
+  App\Security\AuthUserProvider:
+    class: App\Security\AuthUserProvider
+    arguments:
+      [
+        "@doctrine",
+        "%env(USERPROVIDER_KEY)%",
+        "%doctrine.default_entity_manager%",
+      ]
 
-    App\Log\Doctrine\EntityEventListener:
-        tags:
-            - { name: doctrine.event_listener, event: onFlush }
+  App\Template\AnnotationMenuExtension:
+    class: App\Template\AnnotationMenuExtension
+    arguments:
+      [
+        "App\\Controller",
+        "../src/Controller",
+        "%kernel.root_dir%",
+        "@annotation_reader",
+      ]
 
-    App\DataCollector\AuthSecurityDataCollector:
-        decorates: data_collector.security
+  App\Log\Doctrine\EntityEventListener:
+    tags:
+      - { name: doctrine.event_listener, event: onFlush }
 
-    App\Template\MenuBuilder:
-        arguments:
-            - !tagged app.menu_extension
+  App\DataCollector\AuthSecurityDataCollector:
+    decorates: data_collector.security
 
-    _instanceof:
-        App\Template\MenuExtensionInterface:
-            tags: ['app.menu_extension']
+  App\Template\MenuBuilder:
+    arguments:
+      - !tagged app.menu_extension
+
+  _instanceof:
+    App\Template\MenuExtensionInterface:
+      tags: ["app.menu_extension"]
+
+  Symfony\Component\Asset\Context\RequestStackContext: "@assets.context"

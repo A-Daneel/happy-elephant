@@ -3,15 +3,15 @@
 namespace App\Controller\Security;
 
 use App\Entity\Person\Person;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Security\Auth;
 use App\Mail\MailService;
 use App\Security\AuthUserProvider;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use App\Security\PasswordResetService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 /**
  * Password controller.

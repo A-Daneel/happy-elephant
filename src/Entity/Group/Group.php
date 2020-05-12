@@ -87,8 +87,6 @@ class Group
 
     /**
      * Set id.
-     *
-     * @param string $id
      */
     public function setId(string $id): self
     {
@@ -109,8 +107,6 @@ class Group
 
     /**
      * Set name.
-     *
-     * @param string $name
      */
     public function setName(string $name): self
     {
@@ -131,8 +127,6 @@ class Group
 
     /**
      * Set description.
-     *
-     * @param string $description
      */
     public function setDescription(string $description): self
     {
